@@ -4,7 +4,7 @@ import 'package:tba/UI/Views/Settings.dart';
 import 'package:tba/constants.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(TBAMain());
 }
 
 var kRoutes = {
@@ -13,7 +13,7 @@ var kRoutes = {
   "/settings/login": (_) => throw UnimplementedError(),
 };
 
-class MyApp extends StatelessWidget {
+class TBAMain extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
