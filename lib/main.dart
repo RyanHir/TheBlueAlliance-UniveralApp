@@ -7,7 +7,7 @@ void main() {
   runApp(TBAMain());
 }
 
-var kRoutes = {
+final Map<String, Widget Function(BuildContext)> kRoutes = {
   "/": (_) => Home(),
   "/settings": (_) => Settings(),
   "/settings/login": (_) => throw UnimplementedError(),
