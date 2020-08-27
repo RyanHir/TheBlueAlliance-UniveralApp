@@ -3,6 +3,12 @@ import 'package:flutter/material.dart';
 const kAppNameLong = "The Blue Alliance";
 const kAppNameShort = "TBA";
 
+/*
+ * Defining the different color swatches needed for theming.
+ * The base color 0x3F51B5 is pulled from the website via
+ * Firefox's color picker.
+ */
+const kPrimaryColor = 0xFF3F51B5;
 const Map<int, Color> kColorSwatch = {
   050: Color(0x193F51B5), // 10 %
   100: Color(0x333F51B5), // 20 %
@@ -13,11 +19,19 @@ const Map<int, Color> kColorSwatch = {
   600: Color(0xB23F51B5), // 70 %
   700: Color(0xCC3F51B5), // 80 %
   800: Color(0xE53F51B5), // 90 %
-  900: Color(0xFF3F51B5), // 100 %
+  900: Color(kPrimaryColor), // 100 %
 };
 
-const kMaterialColor = MaterialColor(0xFF3F51B5, kColorSwatch);
+/*
+ * Define a MaterialColor object for tracking the different colors
+ * and interface with Flutter's theming engine.
+ */
+const kMaterialColor = MaterialColor(kPrimaryColor, kColorSwatch);
 
+/*
+ * Define the ThemeData object for controlling the application's
+ * theming.
+ */
 final kThemeData = ThemeData(
     brightness: Brightness.light,
     primaryColor: kMaterialColor,
