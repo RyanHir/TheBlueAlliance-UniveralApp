@@ -74,7 +74,7 @@ class HomeState extends State<StatefulWidget> {
 
   void isOnline() async {
     try {
-      print((await fetch("status", {})).toString());
+      await fetch("status", {});
     } catch (e) {
       setState(() {
         _loading = false;

@@ -10,8 +10,7 @@ const _baseHeader = {
   "Accept": "application/json"
 };
 
-Future<Map<String, dynamic>> fetch(
-    String endpoint, Map<String, String> extra) async {
+Future<dynamic> fetch(String endpoint, Map<String, String> extra) async {
   var header = _baseHeader;
   var url = "$_baseURL/$endpoint";
   extra.forEach((k, v) => header[k] = v);
