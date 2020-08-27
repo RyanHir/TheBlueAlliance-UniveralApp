@@ -14,7 +14,6 @@ class HomeState extends State<StatefulWidget> {
 
   @override
   Widget build(BuildContext context) {
-    
     return new Scaffold(
       appBar: AppBar(title: Text(kAppNameLong), actions: [
         IconButton(
