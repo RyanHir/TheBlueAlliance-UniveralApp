@@ -9,7 +9,8 @@ void main() {
 
 var kRoutes = {
   "/": (_) => Home(),
-  "/settings": (_) => Settings()
+  "/settings": (_) => Settings(),
+  "/settings/login": (_) => throw UnimplementedError(),
 };
 
 class MyApp extends StatelessWidget {
