@@ -1,8 +1,7 @@
-// Name of application,
 import 'package:flutter/material.dart';
 
-const kAppName = "The Blue Alliance";
-const kAppNameShortened = "TBA";
+const kAppNameLong = "The Blue Alliance";
+const kAppNameShort = "TBA";
 
 const Map<int, Color> kColorSwatch = {
   050: Color(0x193F51B5), // 10 %

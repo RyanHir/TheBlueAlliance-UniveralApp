@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: kAppNameShortened,
+      title: kAppNameShort,
       theme: kThemeData,
       home: new Home(),
       debugShowCheckedModeBanner: false,
@@ -22,7 +22,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(title: Text(kAppName)),
+      appBar: new AppBar(title: Text(kAppNameLong)),
       body: Center(
         child: Text("Test"),
       ),
