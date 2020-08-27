@@ -1,8 +1,8 @@
 // Name of application,
 import 'package:flutter/material.dart';
 
-const String kAppName = "The Blue Alliance";
-const String kAppNameShortened = "TBA";
+const kAppName = "The Blue Alliance";
+const kAppNameShortened = "TBA";
 
 const Map<int, Color> kColorSwatch = {
   050: Color(0x193F51B5), // 10 %
@@ -17,10 +17,9 @@ const Map<int, Color> kColorSwatch = {
   900: Color(0xFF3F51B5), // 100 %
 };
 
-const MaterialColor kMaterialColor =
-    MaterialColor(0xFF3F51B5, kColorSwatch);
+const kMaterialColor = MaterialColor(0xFF3F51B5, kColorSwatch);
 
-final ThemeData kThemeData = ThemeData(
+final kThemeData = ThemeData(
     brightness: Brightness.light,
     primaryColor: kMaterialColor,
     accentColor: kMaterialColor,
