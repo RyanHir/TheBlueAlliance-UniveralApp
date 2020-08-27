@@ -26,7 +26,9 @@ jobs:
           # The Flutter build release channel
           channel: beta # optional, default is stable
       - run: flutter config --enable-web
-      - run: cd TheBlueAlliance-UniveralApp
       - run: flutter pub get
+        working-directory: ./
       - run: flutter test
+        working-directory: ./
       - run: flutter build web
+        working-directory: ./
