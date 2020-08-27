@@ -19,10 +19,8 @@ class TBAMain extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: kAppNameShort,
-      
       routes: kRoutes,
       initialRoute: "/",
-      
       theme: kThemeData,
       debugShowCheckedModeBanner: false,
     );
