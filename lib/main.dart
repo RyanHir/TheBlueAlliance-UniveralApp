@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:tba/UI/Views/Home.dart';
+import 'package:tba/UI/Views/Settings.dart';
 import 'package:tba/constants.dart';
 
 void main() {
   runApp(MyApp());
 }
+
+var kRoutes = {
+  "/": (_) => Home(),
+  "/settings": (_) => Settings()
+};
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -12,42 +19,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: kAppNameShort,
       theme: kThemeData,
-      home: new Home(),
       debugShowCheckedModeBanner: false,
-    );
-  }
-}
-
-class Home extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(title: Text(kAppNameLong)),
-      body: Center(
-        child: Text("Test"),
-      ),
-      bottomNavigationBar: new BottomNavigationBar(items: [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.calendar_today),
-          title: Text("Events"),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.people),
-          title: Text("Teams"),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.group_work),
-          title: Text("Districts"),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.star),
-          title: Text("myTBA"),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.settings),
-          title: Text("Settings"),
-        ),
-      ]),
+      initialRoute: "/",
+      routes: kRoutes,
     );
   }
 }
