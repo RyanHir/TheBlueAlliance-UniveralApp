@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tba/UI/Views/Menus/Districts.dart';
+import 'package:tba/UI/Views/Menus/Events.dart';
+import 'package:tba/UI/Views/Menus/Teams.dart';
+import 'package:tba/UI/Views/Menus/myTBA.dart';
 import 'package:tba/constants.dart';
 
 class Home extends StatefulWidget {
@@ -12,6 +16,25 @@ class HomeState extends State<StatefulWidget> {
   // ignore: unused_field
   int _position = 0;
 
+  Widget _getScreen() {
+    switch (_position) {
+      case 0:
+        return Events();
+        break;
+      case 1:
+        return Teams();
+        break;
+      case 2:
+        return Districts();
+        break;
+      case 3:
+        return MyTBA();
+        break;
+      default:
+        throw UnsupportedError("Unknown Position Given!");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -20,9 +43,7 @@ class HomeState extends State<StatefulWidget> {
             icon: Icon(Icons.settings),
             onPressed: () => Navigator.pushNamed(context, "/settings"))
       ]),
-      body: Center(
-        child: Text("Position: $_position"),
-      ),
+      body: _getScreen(),
       bottomNavigationBar: new BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
