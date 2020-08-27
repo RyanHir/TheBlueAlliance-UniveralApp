@@ -47,3 +47,5 @@ final kThemeData = ThemeData(
     fontFamily: "Roboto");
 
 const int tabletBreakpoint = 600;
+const kAPIKey =
+    "PQjeqrfDxcGlSTbST4kaRuM30Zeh1VmJ28B6CaYcFsnXDYkL76wT3aTG5AzanGKy";

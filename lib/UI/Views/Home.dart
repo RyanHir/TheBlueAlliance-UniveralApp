@@ -3,6 +3,7 @@ import 'package:tba/UI/Views/Menus/Districts.dart';
 import 'package:tba/UI/Views/Menus/Events.dart';
 import 'package:tba/UI/Views/Menus/Teams.dart';
 import 'package:tba/UI/Views/Menus/myTBA.dart';
+import 'package:tba/Tools/apiFetch.dart';
 import 'package:tba/constants.dart';
 
 class Home extends StatefulWidget {
@@ -14,6 +15,9 @@ class Home extends StatefulWidget {
 
 class HomeState extends State<StatefulWidget> {
   // ignore: unused_field
+  bool _firstLoad = true;
+  bool _loading = true;
+  bool _online = false;
   int _position = 0;
 
   Widget _getScreen() {
@@ -35,8 +39,7 @@ class HomeState extends State<StatefulWidget> {
     }
   }
 
-  @override
-  Widget build(BuildContext context) {
+  Widget _buildOnline(BuildContext context) {
     return new Scaffold(
       appBar: AppBar(title: Text(kAppNameLong), actions: [
         IconButton(
@@ -67,5 +70,46 @@ class HomeState extends State<StatefulWidget> {
         currentIndex: _position,
       ),
     );
+  }
+
+  void isOnline() async {
+    try {
+      print((await fetch("status", {})).toString());
+    } catch (e) {
+      setState(() {
+        _loading = false;
+        _online = false;
+      });
+      return;
+    }
+    setState(() {
+      _loading = false;
+      _online = true;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (_firstLoad) {
+      isOnline();
+      _firstLoad = false;
+    }
+    if (_loading) {
+      return Scaffold(body: Center(child: CircularProgressIndicator()));
+    } else {
+      if (_online) {
+        return _buildOnline(context);
+      } else {
+        return Scaffold(
+          body: Center(
+            child: Text(
+              "Cannot get connection to API. Try again later.",
+              style: kThemeData.textTheme.headline1,
+            ),
+          ),
+        );
+        // return _buildOnline(context);
+      }
+    }
   }
 }
