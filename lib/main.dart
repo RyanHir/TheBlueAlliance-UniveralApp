@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'const.dart';
+import 'package:tba/constants.dart';
+import 'package:tba/UI/theme.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,11 +11,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'The Blue Alliance',
-      theme: ThemeData(
-        primarySwatch: materialColor,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+      title: appNameShortened,
+      theme: TBAThemeInfo.getTheme(),
       home: new Home(),
       debugShowCheckedModeBanner: false,
     );
@@ -25,7 +23,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(title: Text("The Blue Alliance")),
+      appBar: new AppBar(title: Text(appName)),
       body: Center(child: Text("Test"),),
       bottomNavigationBar: null,
     );
