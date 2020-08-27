@@ -23,7 +23,7 @@ final kThemeData = ThemeData(
     brightness: Brightness.light,
     primaryColor: kMaterialColor,
     accentColor: kMaterialColor,
-    iconTheme: IconThemeData(color: Colors.black),
+    iconTheme: IconThemeData(color: Colors.black87),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
         selectedItemColor: kColorSwatch[900],
         unselectedItemColor: Colors.black87,
