@@ -17,8 +17,8 @@ const Map<int, Color> kColorSwatch = {
   900: Color(0xFF3F51B5), // 100 %
 };
 
-final MaterialColor kMaterialColor =
-    MaterialColor(kColorSwatch[900].value, kColorSwatch);
+const MaterialColor kMaterialColor =
+    MaterialColor(0xFF3F51B5, kColorSwatch);
 
 final ThemeData kThemeData = ThemeData(
     brightness: Brightness.light,
@@ -30,7 +30,8 @@ final ThemeData kThemeData = ThemeData(
         unselectedItemColor: Colors.black87,
         showSelectedLabels: true,
         showUnselectedLabels: true,
-        elevation: 12.0),
+        elevation: 12.0,
+        type: BottomNavigationBarType.fixed),
     fontFamily: "Roboto");
 
 const int tabletBreakpoint = 600;
