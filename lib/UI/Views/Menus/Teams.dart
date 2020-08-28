@@ -11,19 +11,21 @@ class Teams extends StatefulWidget {
 class TeamState extends State<StatefulWidget> {
   bool _firstLoad = true;
   bool _loading = true;
-  var teams = [];
+  List teams = [];
 
   void _fetch() async {
     int page = 0;
     while (true) {
       var buf = await fetch("teams/$page/simple", {});
       assert(buf is List);
+      teams += buf;
       if (buf.length != 0) {
         page++;
       } else {
         break;
       }
     }
+
     setState(() => _loading = false);
   }
 
@@ -42,6 +44,7 @@ class TeamState extends State<StatefulWidget> {
         child: ListView.builder(
             itemCount: teams.length,
             itemBuilder: (context, item) {
+              print(teams[item]);
               return ListTile(
                 title: Text(
                     "${teams[item]["team_number"]}: ${teams[item]["nickname"]}"),
