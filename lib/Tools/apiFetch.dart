@@ -13,23 +13,31 @@ const _baseHeader = {
   "User-Agent": "gzip"
 };
 
+const _toServerMod = "If-Modified-Since";
+const _fromServerMod = "last-modified";
+
 Future<dynamic> fetch(String endpoint, Map<String, String> extra) async {
   // Keys
   final String cacheKey = "/cache/$endpoint/data";
   final String lastModKey = "/cache/$endpoint/last_mod";
+
+  // URL to speak to
   final String url = "$_baseURL/$endpoint";
+
+  // Runtime tools and data
   final SharedPreferences prefs = await SharedPreferences.getInstance();
   final Map<String, String> header = {..._baseHeader, ...extra};
 
+  // server response data.
   final response = await http.get(url,
       headers: Map.from(header)
-        ..addAll({"If-Modified-Since": prefs.getString(lastModKey) ?? ""}));
+        ..addAll({_toServerMod: prefs.getString(lastModKey) ?? ""}));
 
   switch (response.statusCode) {
     case 200:
       await Future.wait([
         prefs.setString(cacheKey, response.body),
-        prefs.setString(lastModKey, response.headers["last-modified"])
+        prefs.setString(lastModKey, response.headers[_fromServerMod])
       ]);
       return decode.jsonDecode(response.body);
     case 304:
