@@ -17,10 +17,9 @@ class TeamState extends State<StatefulWidget> {
     int page = 0;
     while (true) {
       var buf = await fetch("teams/$page/simple", {});
-      page++;
       assert(buf is List);
       if (buf.length != 0) {
-        teams += buf;
+        page++;
       } else {
         break;
       }
