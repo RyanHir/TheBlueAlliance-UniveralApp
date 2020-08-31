@@ -31,4 +31,4 @@ Android and iOS applications while Flutter targets...
 * Windows ("are in development")
 
 By targeting the first three platforms, we are able to support every major
-platform or any that supports a modern web browser.
+**mobile** platform or any mobile/desktop platform that supports a modern web browser.
