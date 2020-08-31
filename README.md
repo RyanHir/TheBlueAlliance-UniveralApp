@@ -1,16 +1,33 @@
-# tba
+# The Blue Alliance Universal App
 
-A new Flutter project.
+## Why a universal app
 
-## Getting Started
+This project is designed to unify three repos under one codebase
 
-This project is a starting point for a Flutter application.
+* https://github.com/the-blue-alliance/the-blue-alliance-android
+* https://github.com/the-blue-alliance/the-blue-alliance-ios
+* https://github.com/the-blue-alliance/the-blue-alliance-pwa
 
-A few resources to get you started if this is your first Flutter project:
+The goal is that by having one codebase, features can be rolled out 
+to all users at the same time with as little if no differences.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+---
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Why Flutter?
+
+[Flutter](https://flutter.dev/) is a toolkit contributed to by Google LLC.
+which allows for elegant cross-platform development under one codebase
+using the [Dart Language](https://dart.dev/).
+
+Flutter can be comparable to Microsoft's 
+[Xamarin](https://dotnet.microsoft.com/apps/xamarin) which only targets
+Android and iOS applications while Flutter targets...
+
+* Android
+* iOS
+* Web (Beta)
+* Windows (Alpha)
+* and MacOS (Alpha). 
+
+By targeting the first three platforms, we are able to support every major
+platform or any that supports a modern web browser.
