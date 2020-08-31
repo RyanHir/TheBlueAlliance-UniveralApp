@@ -27,7 +27,7 @@ Android and iOS applications while Flutter targets...
 * iOS
 * Web (Beta)
 * Windows (Alpha)
-* and MacOS (Alpha). 
+* MacOS (Alpha) 
 
 By targeting the first three platforms, we are able to support every major
 platform or any that supports a modern web browser.
