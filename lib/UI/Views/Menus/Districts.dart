@@ -1,42 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:tba/Tools/apiFetch.dart';
+import 'package:flutter/widgets.dart';
 
-class Districts extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    return DistrictState();
-  }
-}
+class Districts extends StatelessWidget {
+  Districts(this.data);
 
-class DistrictState extends State<Districts> {
-  bool _firstLoad = true;
-  bool _loading = true;
-  var districts = [];
-
-  void _fetch() async {
-    districts = await fetch("districts/2020", {});
-    setState(() => _loading = false);
-  }
+  @required
+  final List data;
 
   @override
   Widget build(BuildContext context) {
-    if (_firstLoad) {
-      _fetch();
-      _firstLoad = false;
-    }
-    if (_loading) {
-      return Center(
-        child: CircularProgressIndicator(),
-      );
-    }
-    return Center(
-        child: ListView.builder(
-            itemCount: districts.length,
-            itemBuilder: (context, item) {
-              return ListTile(
-                title: Text(districts[item]["display_name"]),
-                trailing: Icon(Icons.arrow_forward),
-              );
-            }));
+    return ListView.builder(
+        itemCount: data.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            title: Text(data[index]["display_name"]),
+          );
+        });
   }
 }

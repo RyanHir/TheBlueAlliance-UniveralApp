@@ -1,42 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:tba/Tools/apiFetch.dart';
+import 'package:flutter/widgets.dart';
 
-class Events extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    return EventState();
-  }
-}
+class Events extends StatelessWidget {
+  Events(this.data);
 
-class EventState extends State<StatefulWidget> {
-  bool _firstLoad = true;
-  bool _loading = true;
-  var events = [];
-
-  void _fetch() async {
-    events = await fetch("events/2020", {});
-    setState(() => _loading = false);
-  }
+  @required
+  final List data;
 
   @override
   Widget build(BuildContext context) {
-    if (_firstLoad) {
-      _fetch();
-      _firstLoad = false;
-    }
-    if (_loading) {
-      return Center(
-        child: CircularProgressIndicator(),
-      );
-    }
-    return Center(
-        child: ListView.builder(
-            itemCount: events.length,
-            itemBuilder: (context, item) {
-              return ListTile(
-                title: Text(events[item]["name"]),
-                trailing: Icon(Icons.arrow_forward),
-              );
-            }));
+    return ListView.builder(
+        itemCount: data.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            title: Text(data[index]["name"]),
+          );
+        });
   }
 }
